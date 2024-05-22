@@ -1,5 +1,5 @@
 
-# ICG Project Video
+# CG Project Video
 
 <!-- <video src="video/out/Project_WebGL_to_Video.mp4" controls="true" width="640" ></video> -->
 
