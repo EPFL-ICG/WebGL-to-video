@@ -5,23 +5,12 @@
 
 <a href="video/out/Project_WebGL_to_Video.mp4?raw=true"><img src="video/images/page_title.svg" width="640" /></a>
 
-The detailed information about the ICG project video is [here](https://lgg.epfl.ch/teaching/ICG20/icg_lectures/2021_project_instructions/#final-presentation-video), in summary:
-
-* 2 minutes in length
-* Display the project title and the group member names in the first 5 seconds (There can be an image or video in the background, just please make it readable)
-* 1920x1080 resolution, preferably 60 frames per second
-* MP4 container with H264 encoding (we ask everyone for the same codec so that we can concatenate the videos without lossy re-encoding, h264 is a popular codec and can be played by web browsers)
-* Choose which elements best demonstrate your achievement - for example video of the rendering, recording of an interactive session, slides about the technical side etc...
-* Your commentary: recorded audio or subtitles (or both). In the commentary, please describe what your project is doing and how you achieved it.
-
-If you do not have previous experience with video capture and editing, we compiled some advice and examples here.
-We also provide code and instructions for capturing video in the WebGL framework.
-  
+Instructions to record the final video of the Computer Graphics course project.
 
 # Recording
 
 The usual way to record video is capturing the frames displayed on screen with sofware like [OBS](https://obsproject.com/).
-If that works for you, that is very well.
+If that works for you, that is the way to go.
 
 However, if the rendering is not running fast enough, the resulting captured video will not be smooth.
 Below we describe some ways to address this.
@@ -83,7 +72,7 @@ By default we bind it to the **R** key:
 register_keyboard_action('r', video_start_stop);
 ```
 
-* In your render loop, parametrize the scene by the *number of the current frame* `frame.tick` amd not by `frame.time`.
+* In your render loop, parametrize the scene by the *number of the current frame* `frame.tick` and not by `frame.time`.
 This way the *n*-th frame will always look the same, regardless how fast your GPU is.
 
 * In the render loop, do `video.push_frame()`.
@@ -106,10 +95,10 @@ However, this video file is only an intermediate step. Your video editor will re
 
 Unfortunately, the file produced by the `MediaRecorder` is flawed and we need to fix it before the next step.
 
-Firstly, it seems to be missing some metadata/headers, it can be played but fails to load in video editors (I tested Blender and Kdenlive).
+Firstly, it seems to be missing some metadata/headers, it can be played but fails to load in video editors (we tested Blender and Kdenlive).
 
 Secondly, the *timestamps* of the frames are most probably wrong.
-When the video is written by `MediaRecorder`, each frame is put at the *real time* that it was captures.
+When the video is written by `MediaRecorder`, each frame is put at the *real time* that it was captured.
 
 Our rendering often runs below real-time, especially with the additional burden of the recording process.
 Therefore, we want the frames to be played *faster* than according to the times they were taken.
@@ -137,7 +126,7 @@ The resulting `capture_1_60fps.webm` file now plays smoothly and can be used in 
 
 # Editing
 
-In this step we combine the captured videos, images, slides, diagrams into a 2 minute video.
+In this step we combine the captured videos, images, slides, diagrams into the final video.
 
 There is a variety of video editing tools: GUI (I know [Kdenlive](https://kdenlive.org), [OpenShot](https://www.openshot.org/), [Blender](https://www.blender.org/) but there are many more) or programmatic ([FFmpeg concatenate](https://trac.ffmpeg.org/wiki/Concatenate), [moviepy](https://zulko.github.io/moviepy/)).
 
@@ -193,16 +182,12 @@ Audio: AAC
 
 ## Audio / Commentary
 
-Usually we ask you to comment the video live during the event, but the lack of in-person meeting makes that infeasible this year.
+Feel free to add sound and music to your video.
+We ask you to present and comment the results live, so keep the music in the background and not too loud.
+Do not add a commentary to the video, you will present the results live.
 
-Therefore, **please include your commentary as recorded audio or subtitles (or both)**.
-In the commentary, please describe what your project is doing and how you achieved it.
-
-
-I did not have much to say in the example project so instead I included creative-commons music generously provided by [Kevin MacLeod](https://incompetech.com/):
+The music in the example video is provided under creative-commons license by [Kevin MacLeod](https://incompetech.com/):
 
 The Cannery by Kevin MacLeod  
-Link: <https://incompetech.filmmusic.io/song/4485-the-cannery>  
-License: <http://creativecommons.org/licenses/by/4.0/>  
-
-But for the project we would love to hear what *you* have to say about it.
+Link: <https://incompetech.filmmusic.io/song/4485-the-cannery>
+License: <http://creativecommons.org/licenses/by/4.0/>
