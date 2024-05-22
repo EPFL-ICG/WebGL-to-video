@@ -5,7 +5,9 @@
 
 <a href="video/out/Project_WebGL_to_Video.mp4?raw=true"><img src="video/images/page_title.svg" width="640" /></a>
 
-Instructions to record the final video of the Computer Graphics course project.
+These are the instructions to record the final video of the Computer Graphics course project.
+
+We thank Krzysztof Lis for designing, implementating, and sharing these instructions.
 
 # Recording
 
